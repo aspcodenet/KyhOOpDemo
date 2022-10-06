@@ -2,9 +2,50 @@
 
 public class App
 {
+
+    public void Lab1()
+    {
+        var lunchList = new List<Dish>();
+        var dish1 = new Dish("Pannkakor", 50, 10, DishType.Vegetarian);
+        var dish2 = new Dish("Köttbullar", 70, 30, DishType.Meat);
+        var dish3 = new Dish("Burgare", 100, 50, DishType.Meat);
+
+        lunchList.Add(dish1);
+        lunchList.Add(dish2);
+        lunchList.Add(dish3);
+
+        Console.WriteLine("VEGETARISK");
+        foreach (var dish in lunchList)
+        {
+            if (dish.DishType == DishType.Vegetarian)
+            {
+                var currentPrice = dish.Price;
+                Console.WriteLine($"{dish.Name} {dish.Calories}   {currentPrice}");
+            }
+        }
+
+        Console.WriteLine("KÖTT");
+        foreach (var dish in lunchList)
+        {
+            if (dish.DishType == DishType.Meat)
+                Console.WriteLine($"{dish.Name} {dish.Calories}   {dish.Price}");
+        }
+
+        Console.WriteLine("VEGAN");
+        foreach (var dish in lunchList)
+        {
+            if (dish.DishType == DishType.Vegan)
+                Console.WriteLine($"{dish.Name} {dish.Calories}   {dish.Price}");
+        }
+
+
+    }
+
     // Elliot
     public void Run()
     {
+        Lab1();
+
         var allaPersoner = new List<Person>();
 
         while (true)
