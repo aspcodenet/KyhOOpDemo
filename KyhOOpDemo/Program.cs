@@ -18,6 +18,7 @@ var l = new List<Person>();
 l.Add(p);
 l.Add(p2);
 l.Add(p3);
+l.Add(p4);
 
 foreach (var player in l)
 {
