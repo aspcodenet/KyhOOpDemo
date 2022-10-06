@@ -11,12 +11,12 @@ public class App
         {
             try
             {
-                //var p = new Person();
-                //Console.WriteLine("Ange namn:");
-                //p.SetName(Console.ReadLine());
-                //Console.WriteLine("Ange age:");
-                //p.SetAge(Convert.ToInt32(Console.ReadLine()));
-                //allaPersoner.Add(p);
+                Console.WriteLine("Ange namn:");
+                var namn2 = Console.ReadLine();
+                Console.WriteLine("Ange age:");
+                var age1 = Convert.ToInt32(Console.ReadLine());
+                var p = new Person(namn2, age1);
+                allaPersoner.Add(p);
                 break;
             }
             catch(Exception ex)
@@ -32,6 +32,10 @@ public class App
         var namn = Console.ReadLine();
         Console.Write("Age:");
         var age = Convert.ToInt32(Console.ReadLine());
+        var p2 = new Person(namn, age);
+        p2.Age = 40;
+        allaPersoner.Add(p2);
+
         //var person = new Person();
         //person.SetName("Stefan");
         //person.SetAge(age);
@@ -41,7 +45,7 @@ public class App
         int summa = 0;
         foreach (var person2 in allaPersoner)
         {
-            summa += person2.GetAge();
+            summa += person2.Age;
         }
         Console.WriteLine($"Medelåldern är:{Convert.ToSingle(summa) / allaPersoner.Count() }");
 
