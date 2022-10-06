@@ -3,6 +3,16 @@
 public class App
 {
 
+    public void ShowSubMenu(List<Dish> lunchList, string rubrik, DishType dishType)
+    {
+        Console.WriteLine(rubrik);
+        foreach (var dish in lunchList)
+        {
+            if (dish.DishType == dishType)
+                Console.WriteLine($"{dish.Name} Antal kalorier:{dish.Calories}   {dish.Price}Kr");
+        }
+    }
+
     public void Lab1()
     {
         var lunchList = new List<Dish>();
@@ -14,29 +24,9 @@ public class App
         lunchList.Add(dish2);
         lunchList.Add(dish3);
 
-        Console.WriteLine("VEGETARISK");
-        foreach (var dish in lunchList)
-        {
-            if (dish.DishType == DishType.Vegetarian)
-            {
-                var currentPrice = dish.Price;
-                Console.WriteLine($"{dish.Name} {dish.Calories}   {currentPrice}");
-            }
-        }
-
-        Console.WriteLine("KÖTT");
-        foreach (var dish in lunchList)
-        {
-            if (dish.DishType == DishType.Meat)
-                Console.WriteLine($"{dish.Name} {dish.Calories}   {dish.Price}");
-        }
-
-        Console.WriteLine("VEGAN");
-        foreach (var dish in lunchList)
-        {
-            if (dish.DishType == DishType.Vegan)
-                Console.WriteLine($"{dish.Name} {dish.Calories}   {dish.Price}");
-        }
+        ShowSubMenu(lunchList, "VEGETARISK", DishType.Vegetarian);
+        ShowSubMenu(lunchList, "KÖTT", DishType.Meat);
+        ShowSubMenu(lunchList, "VEGANSK", DishType.Vegan);
 
 
     }
